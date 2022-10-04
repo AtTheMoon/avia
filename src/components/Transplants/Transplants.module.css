@@ -15,10 +15,36 @@
 
 .select{
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.select span{
+    margin-left: 10px;
+}
+
+/* .select input{
+    display: none;
+}
+
+.select__style{
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 3px 0 1px 0;
+} */
+
+/* .select input:checked + .select__style{
+    background-color: #2196F3;
+    border: none;
 }
 
 .select span{
     font-weight: 400;
     font-size: 14px; 
-    margin-left: 10px;   
-}
+    margin-left: 25px;   
+} */

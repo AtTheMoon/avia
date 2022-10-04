@@ -4,7 +4,7 @@ import s from './Content.module.css'
 export const Content = (props) => {
   return (
     <div className={s.container}>
-        <div className={s.price}>{props.price}</div>
+        <div className={s.price}>{props.price} Р</div>
         <div className={s.dataBlock}>
             <div className={s.company}>
                 <div className={s.title}>Авиакомпания</div>
@@ -15,7 +15,7 @@ export const Content = (props) => {
                 <span className={s.content}>{props.time}</span>
             </div>
             <div className={s.transplants}>
-                <div className={s.title}>2 пересадки</div>
+                <div className={s.title}><span>{props.amount}</span> пересадк{props.amount == 1 ? 'а' : 'и'}</div>
                 <span className={s.content}>{props.transplants}</span>
             </div>
         </div>
