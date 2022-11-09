@@ -20,7 +20,11 @@
     align-items: center;
 }
 
-.select input{
+.select span{
+    margin-left: 10px;
+}
+
+/* .select input{
     display: none;
 }
 
@@ -44,4 +48,4 @@
     font-weight: 400;
     font-size: 14px; 
     margin-left: 25px;   
-}
+} */

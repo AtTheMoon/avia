@@ -4,32 +4,14 @@ import s from './Tickets.module.css'
 export const Tickets = (props) => {
   return (
     <div className={s.container}>
-         <div className={s.title}>Сортировать билеты</div>
-         <label className={s.select}>
-            <input type="radio" name='select' className={s.select__all}/>
-            <div className={s.select__style}><img src={props.checkIcon} alt="" /></div>
-            <span>Все</span>
-        </label>
-        <label className={s.select}>
-            <input type="radio" name='select' className={s.select__priceUp}/>
-            <div className={s.select__style}><img src={props.checkIcon} alt="" /></div>
-            <span>По цене (возраст.)</span>
-        </label>
-        <label className={s.select}>
-            <input type="radio" name='select' className={s.select__priceDown}/>
-            <div className={s.select__style}><img src={props.checkIcon} alt="" /></div>
-            <span>По цене (убыв.)</span>
-        </label>
-        <label className={s.select}>
-            <input type="radio" name='select' className={s.select__timeUp}/>
-            <div className={s.select__style}><img src={props.checkIcon} alt="" /></div>
-            <span>Время в полете (возраст.)</span>
-        </label>
-        <label className={s.select}>
-            <input type="radio" name='select' className={s.select__timeDown}/>
-            <div className={s.select__style}><img src={props.checkIcon} alt="" /></div>
-            <span>Время в полете (убыв.)</span>
-        </label>
+        <div className={s.title}>Сортировать билеты</div>
+        {props.checkboxArr.map(element => {
+            return(
+             <label key={element.id} className={s.select}>
+             <input type="radio" name='tickets' onChange={()=>{props.filterArr(element.id)}}/>
+             <span>{element.caps}</span>
+             </label>)
+        })}
     </div>
   )
 }

@@ -12,7 +12,7 @@ export const Content = (props) => {
             </div>
             <div className={s.time}>
                 <div className={s.title}>В пути</div>
-                <span className={s.content}>{props.time}</span>
+                <span className={s.content}>{props.time.hours}ч  {props.time.min}м</span>
             </div>
             <div className={s.transplants}>
                 <div className={s.title}><span>{props.amount}</span> пересадк{props.amount == 1 ? 'а' : 'и'}</div>
