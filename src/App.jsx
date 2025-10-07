@@ -258,25 +258,27 @@ const filterTicketsArr=(arg)=>{
 // setContent(content)
 }
 
-  const filterTickets = (arg) =>{
-    console.log('hi')
-      let ticketsArr = content.sort((a, b) => {
-            if(arg === 'tUp'){
-              return((a.time.hours * 60 + a.time.min) - (b.time.hours * 60 + b.time.min))
-            }
-            else if(arg === 'tDown'){
-              return((b.time.hours * 60 + b.time.min) - (a.time.hours * 60 + a.time.min))
-            }
-            else if(arg === 'pUp'){
-            return(a.price.replace(/ +/g, '') - b.price.replace(/ +/g, ''))
-            }
-            else if(arg === 'pDown'){
-              return(b.price.replace(/ +/g, '') - a.price.replace(/ +/g, ''))
-            }
-    })
-      console.log(ticketsArr)
-      setContent(ticketsArr)
-  }
+  const filterTickets = (arg) => {
+  console.log('hi');
+  
+  // Создаем новый массив
+  let ticketsArr = [...content].sort((a, b) => {
+    if (arg === 'tUp') {
+      return (a.time.hours * 60 + a.time.min) - (b.time.hours * 60 + b.time.min);
+    } else if (arg === 'tDown') {
+      return (b.time.hours * 60 + b.time.min) - (a.time.hours * 60 + a.time.min);
+    } else if (arg === 'pUp') {
+      return (a.price.replace(/ +/g, '') - b.price.replace(/ +/g, ''));
+    } else if (arg === 'pDown') {
+      return (b.price.replace(/ +/g, '') - a.price.replace(/ +/g, ''));
+    }
+    return 0;
+  });
+
+  // Обновляем состояние с отсортированным массивом
+  setContent(ticketsArr);
+  console.log(ticketsArr);
+};
 
 
 
@@ -286,7 +288,7 @@ const filterTicketsArr=(arg)=>{
 
           <Main
           transplantsChild={<Transplants checkIcon={checkIcon} checkboxArr={chboxes} filterArr={filterArr} />}
-          ticketsChild={<Tickets filterArr={filterTicketsArr} checkboxArr={tickets} checkIcon={checkIcon} />}
+          ticketsChild={<Tickets filterArr={filterTickets} checkboxArr={tickets} checkIcon={checkIcon} />}
           >   {content.map((obj, ind)=>{
             return(
               <Content key={ind} price={obj.price} amount={obj.transplants.length} company={obj.company} time={obj.time} transplants={obj.transplants.map(place=>{return(place)}).join(', ')}/>

@@ -8,8 +8,8 @@ export const Tickets = (props) => {
         {props.checkboxArr.map(element => {
             return(
              <label key={element.id} className={s.select}>
-             <input type="radio" name='tickets' onChange={()=>{props.filterArr(element.id)}}/>
-             <span>{element.caps}</span>
+                <input type="radio" name='tickets' onChange={()=>{props.filterArr(element.id)}}/>
+                <span>{element.caps}</span>
              </label>)
         })}
     </div>
